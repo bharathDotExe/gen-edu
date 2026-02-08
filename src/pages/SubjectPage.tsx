@@ -86,7 +86,7 @@ const SubjectPage: React.FC = () => {
                 onClose={() => setSelectedFile(null)}
                 title={selectedFile?.title}
             >
-                {selectedFile && <PDFReader url={selectedFile.url} content={selectedFile.content} />}
+                {selectedFile && <PDFReader url={selectedFile.url} title={selectedFile.title} />}
             </Modal>
         </div>
     );
