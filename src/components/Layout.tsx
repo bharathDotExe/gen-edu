@@ -14,6 +14,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         { path: '/subject/python', label: 'Python', color: 'hover:text-neon-green', activeColor: 'text-neon-green' },
         { path: '/subject/se', label: 'SE', color: 'hover:text-neon-pink', activeColor: 'text-neon-pink' },
         { path: '/subject/web', label: 'Web', color: 'hover:text-neon-blue', activeColor: 'text-neon-blue' },
+        { path: '/timetable', label: 'Time Table', color: 'hover:text-neon-pink', activeColor: 'text-neon-pink' },
     ];
 
     return (
