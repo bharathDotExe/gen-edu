@@ -36,12 +36,53 @@ const PDFReader: React.FC<PDFReaderProps> = ({ url, content }) => {
                 for (let i = 1; i <= numPages; i++) {
                     const page = await pdf.getPage(i);
                     const textContent = await page.getTextContent();
-                    const pageText = textContent.items
-                        .map((item: any) => item.str)
-                        .join(' ');
 
-                    if (pageText.trim()) {
-                        extractedText.push(pageText);
+                    // Sort items by Y (descending) then X (ascending)
+                    const items = (textContent.items as any[]).map(item => ({
+                        str: item.str,
+                        x: item.transform[4],
+                        y: item.transform[5],
+                        height: item.height || 12
+                    })).sort((a, b) => {
+                        if (Math.abs(a.y - b.y) > 5) return b.y - a.y;
+                        return a.x - b.x;
+                    });
+
+                    let pageLines: string[] = [];
+                    let currentLine = "";
+                    let lastY = items.length > 0 ? items[0].y : 0;
+                    let lastX = 0;
+
+                    items.forEach((item) => {
+                        const yGap = Math.abs(item.y - lastY);
+
+                        // New line detection
+                        if (yGap > 5) {
+                            if (currentLine.trim()) {
+                                pageLines.push(currentLine);
+                                // Paragraph detection (large vertical gap)
+                                if (yGap > item.height * 1.5) {
+                                    pageLines.push("");
+                                }
+                            }
+                            currentLine = item.str;
+                        } else {
+                            // horizontal spacing detection
+                            const xGap = item.x - lastX;
+                            if (currentLine && xGap > 5 && !currentLine.endsWith(" ")) {
+                                currentLine += " ";
+                            }
+                            currentLine += item.str;
+                        }
+
+                        lastY = item.y;
+                        lastX = item.x + (item.str.length * 5); // approximate end X
+                    });
+
+                    if (currentLine.trim()) pageLines.push(currentLine);
+
+                    if (pageLines.length > 0) {
+                        extractedText.push(...pageLines);
                     }
                 }
 
