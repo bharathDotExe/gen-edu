@@ -57,14 +57,14 @@ const ResourceList: React.FC<ResourceListProps> = ({ files, folder, onRead }) =>
                     className="glass p-4 rounded-xl flex items-center gap-4 group hover:bg-white/5 transition-colors cursor-pointer"
                     onClick={() => onRead(getFileUrl(file.name), file.name.split('/').pop() || 'Document', file.content)}
                 >
-                    <div className="p-3 bg-white border border-slate-100 rounded-lg group-hover:scale-110 transition-transform">
+                    <div className="p-2 sm:p-3 bg-white border border-slate-100 rounded-lg group-hover:scale-110 transition-transform shrink-0">
                         {getIcon(file.type)}
                     </div>
                     <div className="flex-1 min-w-0">
-                        <h4 className="font-medium text-slate-900 truncate" title={file.name}>
+                        <h4 className="font-medium text-slate-900 truncate text-sm sm:text-base" title={file.name}>
                             {file.name.split('/').pop()}
                         </h4>
-                        <p className="text-xs text-slate-500 mt-1">{getSubtext(file.type)}</p>
+                        <p className="text-[10px] sm:text-xs text-slate-500 mt-0.5 sm:mt-1">{getSubtext(file.type)}</p>
                     </div>
                     <a
                         href={getFileUrl(file.name)}

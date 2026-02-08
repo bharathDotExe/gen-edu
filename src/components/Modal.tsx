@@ -28,8 +28,8 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, title }) => {
                         className="fixed inset-2 md:inset-10 z-[51] flex items-center justify-center pointer-events-none"
                     >
                         <div className="bg-white rounded-2xl shadow-2xl w-full h-full flex flex-col pointer-events-auto overflow-hidden border border-slate-200">
-                            <div className="flex items-center justify-between p-4 border-b border-slate-100 bg-slate-50">
-                                <h3 className="font-bold text-lg text-slate-800">{title}</h3>
+                            <div className="flex items-center justify-between p-3 md:p-4 border-b border-slate-100 bg-slate-50">
+                                <h3 className="font-bold text-base md:text-lg text-slate-800 truncate pr-4">{title}</h3>
                                 <button
                                     onClick={onClose}
                                     className="p-2 rounded-full hover:bg-slate-200 text-slate-500 transition-colors"

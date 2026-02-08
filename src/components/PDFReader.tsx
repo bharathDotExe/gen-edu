@@ -23,6 +23,8 @@ const PDFReader: React.FC<PDFReaderProps> = ({ url, title }) => {
 
                 if (extension === 'pdf') {
                     setFileType('pdf');
+                    // We don't need to fetch the PDF manually, the iframe will handle it.
+                    // This speeds up the perceived load time significantly.
                     setLoading(false);
                 } else if (['xls', 'xlsx', 'csv'].includes(extension || '')) {
                     setFileType('excel');
@@ -97,7 +99,7 @@ const PDFReader: React.FC<PDFReaderProps> = ({ url, title }) => {
                             <TableIcon className="w-4 h-4 text-emerald-400" />
                         )}
                     </div>
-                    <span className="text-slate-200 text-xs md:text-sm font-semibold truncate max-w-[120px] md:max-w-md">
+                    <span className="text-slate-200 text-xs md:text-sm font-semibold truncate max-w-[80px] xs:max-w-[120px] md:max-w-md hidden min-[400px]:block">
                         {title || 'Document Viewer'}
                     </span>
                 </div>
@@ -130,6 +132,7 @@ const PDFReader: React.FC<PDFReaderProps> = ({ url, title }) => {
                         src={`${url}#toolbar=0&navpanes=0&scrollbar=1`}
                         className="w-full h-full border-none bg-slate-100"
                         title={title || 'PDF Document'}
+                        onLoad={() => setLoading(false)}
                     />
                 ) : (
                     <div className="p-3 md:p-8 min-w-max">
