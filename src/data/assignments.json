@@ -1,0 +1,119 @@
+[
+    {
+        "id": "linux",
+        "name": "Linux Programming",
+        "folder": "linux assignment",
+        "files": [
+            {
+                "name": "BCA-BSIC-LASP-PPT-Topics.pdf",
+                "type": "ppt"
+            },
+            {
+                "name": "LASP-CBA-3.pdf",
+                "type": "assignment",
+                "content": "Choice Based Assessment - 3 \nCategory 1: Command Line Mastery (Filters & Pipes) \nChoose one of the following tasks: \n• Option A (The Data Miner): You have a large log file named access.log. Write a \nsingle-command pipeline that finds all lines containing the word \"ERROR\", extracts \nonly the 3rd column (the timestamp), and saves the count of these errors to a file \nnamed report.txt. \n• Option B (The Cleanup Crew): You have a list of names in users.txt that are messy \n(mixed case, extra spaces). Use a combination of tr, cut, and wc to convert all names \nto lowercase and provide a total count of users in the list. \nCategory 2: The VI Power User \nChoose one of the following tasks: \n• Option A (Efficiency Challenge): List the specific VI command sequences required to: \n1. Delete 5 lines of text starting from the cursor. \n2. Undo that deletion. \n3. Search for the word \"Configuration\" and replace it with \"Setup\" globally. \n• Option B (The Editor's Logic): Explain the functional difference between Command \nMode, Insert Mode, and Last Line Mode. Why does Linux use a modal editor like VI \ninstead of a standard \"point-and-click\" interface for system administration? \nCategory 3: Security & User Management \nChoose one of the following tasks: \n• Option A (The Permissions Audit): You encounter a file with the permissions -rwxr\nxr--. \n1. Translate this into octal (numeric) notation. \n2. Identify what the \"Others\" group can and cannot do. \n3. Provide the command to change this so the \"Owner\" and \"Group\" have full \naccess, but \"Others\" have no access at all. \n• Option B (The Admin's Script): Outline the steps (and commands) to create a new \nuser named dev_user, assign them to a group called developers, and ensure they \nown the directory /home/project_alpha. \nCategory 4: System Navigation & Redirection \nChoose one of the following tasks: \n• Option A (The Search Party): Use the find command to locate all files ending in .sh \nwithin the /etc directory that are larger than 10k. How would you redirect any \n\"Permission Denied\" errors to /dev/null so they don't clutter your screen? \n• Option B (The Tee Connection): Explain a scenario where using the tee command is \nsuperior to using a simple > redirection. Provide a code example demonstrating its \nuse in a real-world system update or log monitoring task. \nSubmission Rules: \n1. Sumit the assessment in PDF format. \n2. For each category choose one option. \n3. PDF should contain the screenshot/snapshots of the commands executed for \neach category followed by the answer to the question asked in each opti"
+            },
+            {
+                "name": "Linux Programming syllabus.docx",
+                "type": "syllabus"
+            },
+            {
+                "name": "linux assignment .pdf",
+                "type": "assignment"
+            },
+            {
+                "name": "linux cba.pdf",
+                "type": "assignment"
+            }
+        ]
+    },
+    {
+        "id": "python",
+        "name": "Python Programming",
+        "folder": "python programing",
+        "files": [
+            {
+                "name": "Python Programming Syllabus.pdf",
+                "type": "syllabus"
+            },
+            {
+                "name": "python assigment 1.pdf",
+                "type": "assignment"
+            },
+            {
+                "name": "python programing ppt topic.pdf",
+                "type": "ppt"
+            },
+            {
+                "name": "python qualitative assignment  1.pdf",
+                "type": "assignment"
+            }
+        ]
+    },
+    {
+        "id": "se",
+        "name": "Software Engineering",
+        "folder": "software engineering",
+        "files": [
+            {
+                "name": "Software Engineering SYLLABUS.docx",
+                "type": "syllabus"
+            },
+            {
+                "name": "software engineering assignement 1.pdf",
+                "type": "assignment"
+            },
+            {
+                "name": "software engineering assignment 2.pdf",
+                "type": "assignment"
+            },
+            {
+                "name": "software engineering ppt topics (1).pdf",
+                "type": "ppt"
+            },
+            {
+                "name": "software engineering qualitative assignment (1).pdf",
+                "type": "assignment"
+            }
+        ]
+    },
+    {
+        "id": "web",
+        "name": "Web Technology",
+        "folder": "web technology",
+        "files": [
+            {
+                "name": "WEB-Assignment-2 (All questions are mandatory) .pdf",
+                "type": "assignment"
+            },
+            {
+                "name": "Web Technology Syllabus.docx",
+                "type": "syllabus"
+            },
+            {
+                "name": "web technology assignment (1).pdf",
+                "type": "assignment"
+            },
+            {
+                "name": "web technology cba -4 (1).pdf",
+                "type": "assignment"
+            },
+            {
+                "name": "web technology cba-3 .pdf",
+                "type": "assignment"
+            },
+            {
+                "name": "web technology ppt topics .xls",
+                "type": "ppt"
+            },
+            {
+                "name": "qualitative assignement/WEB-Assignment-2 (1).pdf",
+                "type": "assignment"
+            },
+            {
+                "name": "qualitative assignement/WEB-QA-webpage designing 1.pdf",
+                "type": "assignment"
+            }
+        ]
+    }
+]

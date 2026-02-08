@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-light-bg text-light-text antialiased;
+  background-image:
+    radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.05), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(236, 72, 153, 0.05), transparent 25%);
+  min-height: 100vh;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-light-bg;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full border border-slate-200;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-neon-purple/50;
+}
+
+/* Glassmorphism Utility */
+.glass {
+  @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-xl;
+}
+
+.glass-card {
+  @apply glass rounded-2xl p-6 transition-all duration-300 hover:border-neon-purple/20 hover:shadow-2xl hover:bg-white/80;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-neon-purple via-neon-pink to-neon-cyan;
+}
