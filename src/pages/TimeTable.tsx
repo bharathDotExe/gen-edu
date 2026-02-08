@@ -104,8 +104,8 @@ const TimeTable: React.FC = () => {
                         key={day.day}
                         onClick={() => setActiveDay(day.day)}
                         className={`px-6 py-2 rounded-full font-bold transition-all duration-300 ${activeDay === day.day
-                                ? 'bg-slate-900 text-white shadow-xl scale-105'
-                                : 'glass text-slate-500 hover:text-slate-900'
+                            ? 'bg-slate-900 text-white shadow-xl scale-105'
+                            : 'glass text-slate-500 hover:text-slate-900'
                             }`}
                     >
                         {day.day}
@@ -125,37 +125,40 @@ const TimeTable: React.FC = () => {
                     {schedule.find(d => d.day === activeDay)?.classes.map((cls, idx) => (
                         <div
                             key={idx}
-                            className="glass-card group flex items-start sm:items-center gap-4 p-4 sm:p-6 overflow-hidden relative"
+                            className="glass-card group flex flex-col xs:flex-row items-stretch xs:items-center gap-4 p-4 sm:p-6 overflow-hidden relative"
                         >
                             <div className={`absolute left-0 top-0 bottom-0 w-1.5 ${cls.color}`} />
 
-                            <div className="flex flex-col sm:items-center justify-center min-w-[100px] text-slate-500">
-                                <Clock className="w-4 h-4 mb-2 hidden sm:block" />
-                                <span className="text-xs font-bold leading-none">{cls.time.split(' - ')[0]}</span>
-                                <div className="h-px w-4 bg-slate-200 my-1 hidden sm:block" />
-                                <span className="text-xs">{cls.time.split(' - ')[1]}</span>
+                            <div className="flex flex-row xs:flex-col items-center xs:justify-center min-w-[80px] sm:min-w-[100px] text-slate-500 border-b xs:border-b-0 xs:border-r border-slate-100 pb-2 xs:pb-0 xs:pr-4">
+                                <Clock className="w-3.5 h-3.5 mr-2 xs:mr-0 xs:mb-2 text-slate-400" />
+                                <div className="flex flex-row xs:flex-col items-center gap-1 sm:gap-0">
+                                    <span className="text-[10px] xs:text-xs font-bold leading-none">{cls.time.split(' - ')[0]}</span>
+                                    <span className="text-[10px] xs:hidden text-slate-300">-</span>
+                                    <div className="h-px w-4 bg-slate-200 my-1 hidden xs:block" />
+                                    <span className="text-[10px] xs:text-xs">{cls.time.split(' - ')[1]}</span>
+                                </div>
                             </div>
 
-                            <div className="flex-1 min-w-0">
+                            <div className="flex-1 min-w-0 pt-1 xs:pt-0">
                                 <div className="flex items-center gap-2 mb-1">
                                     <BookOpen className="w-3.5 h-3.5 text-slate-400" />
                                     <span className="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">
                                         {cls.type || (cls.course === 'BREAK' ? 'Interval' : 'General')}
                                     </span>
                                 </div>
-                                <h3 className="text-lg sm:text-xl font-bold text-slate-800 line-clamp-1 group-hover:text-neon-cyan transition-colors">
+                                <h3 className="text-base sm:text-xl font-bold text-slate-800 group-hover:text-neon-cyan transition-colors leading-snug">
                                     {cls.course}
                                 </h3>
                                 {cls.code && (
-                                    <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2">
-                                        <div className="flex items-center gap-1.5 text-slate-500 text-xs">
-                                            <MapPin className="w-3.5 h-3.5" />
-                                            <span>{cls.code}</span>
+                                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-2">
+                                        <div className="flex items-center gap-1.5 text-slate-500 text-[10px] xs:text-xs">
+                                            <MapPin className="w-3.5 h-3.5 text-slate-400" />
+                                            <span className="break-all">{cls.code}</span>
                                         </div>
                                         {cls.cdi && (
-                                            <div className="flex items-center gap-1.5 text-slate-500 text-xs">
-                                                <User className="w-3.5 h-3.5" />
-                                                <span>{cls.cdi}</span>
+                                            <div className="flex items-center gap-1.5 text-slate-500 text-[10px] xs:text-xs">
+                                                <User className="w-3.5 h-3.5 text-slate-400" />
+                                                <span className="truncate">{cls.cdi}</span>
                                             </div>
                                         )}
                                     </div>
