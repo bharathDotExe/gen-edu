@@ -21,7 +21,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             <Background />
 
             {/* Navigation */}
-            <nav className="fixed top-0 left-0 right-0 z-50 p-4">
+            <nav className="fixed top-0 left-0 right-0 z-40 p-4">
                 <div className="max-w-7xl mx-auto glass rounded-full px-6 py-3 flex items-center justify-between">
                     <Link to="/" className="flex items-center gap-2 font-display font-bold text-2xl tracking-tighter hover:scale-105 transition-transform" onClick={() => setIsMenuOpen(false)}>
                         <Zap className="w-6 h-6 text-neon-pink animate-float" />

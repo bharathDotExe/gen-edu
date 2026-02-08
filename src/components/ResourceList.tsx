@@ -47,14 +47,14 @@ const ResourceList: React.FC<ResourceListProps> = ({ files, folder, onRead }) =>
     };
 
     return (
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-1">
+        <div className="grid gap-3 sm:gap-4 md:grid-cols-2 lg:grid-cols-1">
             {files.map((file, index) => (
                 <motion.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="glass p-4 rounded-xl flex items-center gap-4 group hover:bg-white/5 transition-colors cursor-pointer"
+                    className="glass p-3 sm:p-4 rounded-xl flex items-center gap-3 sm:gap-4 group hover:bg-white/5 transition-colors cursor-pointer w-full overflow-hidden"
                     onClick={() => onRead(getFileUrl(file.name), file.name.split('/').pop() || 'Document', file.content)}
                 >
                     <div className="p-2 sm:p-3 bg-white border border-slate-100 rounded-lg group-hover:scale-110 transition-transform shrink-0">

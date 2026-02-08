@@ -99,7 +99,7 @@ const PDFReader: React.FC<PDFReaderProps> = ({ url, title }) => {
                             <TableIcon className="w-4 h-4 text-emerald-400" />
                         )}
                     </div>
-                    <span className="text-slate-200 text-xs md:text-sm font-semibold truncate max-w-[80px] xs:max-w-[120px] md:max-w-md hidden min-[400px]:block">
+                    <span className="text-slate-200 text-sm font-semibold truncate max-w-[100px] xs:max-w-[150px] md:max-w-md hidden min-[380px]:block">
                         {title || 'Document Viewer'}
                     </span>
                 </div>
@@ -108,19 +108,21 @@ const PDFReader: React.FC<PDFReaderProps> = ({ url, title }) => {
                     <a
                         href={url}
                         download
-                        className="p-2 hover:bg-slate-700 rounded-lg text-slate-400 hover:text-white transition-colors"
+                        className="p-3 hover:bg-slate-700 rounded-lg text-slate-400 hover:text-white transition-colors flex items-center gap-2"
                         title="Download"
                     >
-                        <Download className="w-4 h-4" />
+                        <Download className="w-5 h-5" />
+                        <span className="text-xs font-bold hidden sm:inline">Download</span>
                     </a>
                     <a
                         href={url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 hover:bg-slate-700 rounded-lg text-slate-400 hover:text-white transition-colors"
+                        className="p-3 hover:bg-slate-700 rounded-lg text-slate-400 hover:text-white transition-colors flex items-center gap-2 bg-neon-purple/20"
                         title="Open in new tab"
                     >
-                        <ExternalLink className="w-4 h-4" />
+                        <ExternalLink className="w-5 h-5 text-neon-purple" />
+                        <span className="text-xs font-bold text-neon-purple hidden xs:inline uppercase tracking-tight">Open Full</span>
                     </a>
                 </div>
             </div>
