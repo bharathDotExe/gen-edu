@@ -31,7 +31,7 @@ const SubjectCard: React.FC<SubjectCardProps> = ({ id, title, Cover, description
                 <div className="absolute inset-0 p-6 flex flex-col justify-end text-left z-10">
                     <div className="flex-1" />
 
-                    <h3 className="text-3xl font-bold text-white mb-2 group-hover:text-neon-cyan transition-colors drop-shadow-md">
+                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 group-hover:text-neon-cyan transition-colors drop-shadow-md">
                         {title}
                     </h3>
 

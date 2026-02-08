@@ -27,23 +27,23 @@ const SubjectPage: React.FC = () => {
     return (
         <div className="space-y-8">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-slate-200 pb-6">
-                <div>
+                <div className="flex-1">
                     <motion.h1
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        className="text-4xl font-bold font-display text-slate-900 mb-2"
+                        className="text-3xl md:text-4xl font-bold font-display text-slate-900 mb-1 md:mb-2"
                     >
                         {subject.name}
                     </motion.h1>
-                    <p className="text-slate-500">Access your course materials.</p>
+                    <p className="text-slate-500 text-sm md:text-base">Access your course materials.</p>
                 </div>
 
-                <div className="flex items-center gap-2 bg-slate-100 p-1 rounded-xl">
+                <div className="flex items-center gap-2 bg-slate-100 p-1 rounded-xl overflow-x-auto no-scrollbar shrink-0">
                     {tabs.map((tab) => (
                         <button
                             key={tab.id}
                             onClick={() => setActiveTab(tab.id)}
-                            className={`px-4 py-2 rounded-lg text-sm font-bold transition-all ${activeTab === tab.id
+                            className={`px-4 py-2 rounded-lg text-sm font-bold transition-all whitespace-nowrap ${activeTab === tab.id
                                 ? 'bg-white text-slate-900 shadow-sm'
                                 : 'text-slate-500 hover:text-slate-700'
                                 }`}

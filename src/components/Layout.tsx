@@ -19,12 +19,12 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                         <span className="text-gradient">GEN-Z EDU</span>
                     </Link>
 
-                    <div className="hidden md:flex items-center gap-6 font-medium text-sm">
-                        <Link to="/" className={`hover:text-neon-cyan transition-colors ${location.pathname === '/' ? 'text-neon-cyan' : 'text-gray-400'}`}>Home</Link>
-                        <Link to="/subject/linux" className={`hover:text-neon-purple transition-colors ${location.pathname.includes('linux') ? 'text-neon-purple' : 'text-gray-400'}`}>Linux</Link>
-                        <Link to="/subject/python" className={`hover:text-neon-green transition-colors ${location.pathname.includes('python') ? 'text-neon-green' : 'text-gray-400'}`}>Python</Link>
-                        <Link to="/subject/se" className={`hover:text-neon-pink transition-colors ${location.pathname.includes('se') ? 'text-neon-pink' : 'text-gray-400'}`}>SE</Link>
-                        <Link to="/subject/web" className={`hover:text-neon-blue transition-colors ${location.pathname.includes('web') ? 'text-neon-blue' : 'text-gray-400'}`}>Web</Link>
+                    <div className="flex items-center gap-4 md:gap-6 font-medium text-sm overflow-x-auto no-scrollbar pb-1 -mb-1 max-w-[200px] md:max-w-none">
+                        <Link to="/" className={`shrink-0 hover:text-neon-cyan transition-colors ${location.pathname === '/' ? 'text-neon-cyan' : 'text-gray-400'}`}>Home</Link>
+                        <Link to="/subject/linux" className={`shrink-0 hover:text-neon-purple transition-colors ${location.pathname.includes('linux') ? 'text-neon-purple' : 'text-gray-400'}`}>Linux</Link>
+                        <Link to="/subject/python" className={`shrink-0 hover:text-neon-green transition-colors ${location.pathname.includes('python') ? 'text-neon-green' : 'text-gray-400'}`}>Python</Link>
+                        <Link to="/subject/se" className={`shrink-0 hover:text-neon-pink transition-colors ${location.pathname.includes('se') ? 'text-neon-pink' : 'text-gray-400'}`}>SE</Link>
+                        <Link to="/subject/web" className={`shrink-0 hover:text-neon-blue transition-colors ${location.pathname.includes('web') ? 'text-neon-blue' : 'text-gray-400'}`}>Web</Link>
                     </div>
                 </div>
             </nav>

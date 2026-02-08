@@ -25,7 +25,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, title }) => {
                         initial={{ opacity: 0, scale: 0.95, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                        className="fixed inset-4 md:inset-10 z-[51] flex items-center justify-center pointer-events-none"
+                        className="fixed inset-2 md:inset-10 z-[51] flex items-center justify-center pointer-events-none"
                     >
                         <div className="bg-white rounded-2xl shadow-2xl w-full h-full flex flex-col pointer-events-auto overflow-hidden border border-slate-200">
                             <div className="flex items-center justify-between p-4 border-b border-slate-100 bg-slate-50">

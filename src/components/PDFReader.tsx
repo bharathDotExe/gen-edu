@@ -97,7 +97,7 @@ const PDFReader: React.FC<PDFReaderProps> = ({ url, title }) => {
                             <TableIcon className="w-4 h-4 text-emerald-400" />
                         )}
                     </div>
-                    <span className="text-slate-200 text-sm font-semibold truncate max-w-[150px] md:max-w-md">
+                    <span className="text-slate-200 text-xs md:text-sm font-semibold truncate max-w-[120px] md:max-w-md">
                         {title || 'Document Viewer'}
                     </span>
                 </div>
@@ -132,7 +132,7 @@ const PDFReader: React.FC<PDFReaderProps> = ({ url, title }) => {
                         title={title || 'PDF Document'}
                     />
                 ) : (
-                    <div className="p-4 md:p-8 min-w-max">
+                    <div className="p-3 md:p-8 min-w-max">
                         <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
                             <table className="w-full text-sm text-left border-collapse">
                                 <tbody>
