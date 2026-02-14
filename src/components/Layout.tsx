@@ -120,7 +120,10 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
             {/* Footer */}
             <footer className="relative z-10 py-6 text-center text-gray-500 text-sm">
-                <p>© 2026 GEN-Z EDU. Build the Future.</p>
+                <p className="mb-2">© 2026 GEN-Z EDU. Build the Future.</p>
+                <Link to="/upload" className="inline-block mt-4 text-xs font-medium text-green-500 hover:text-green-400 transition-colors border border-green-500/30 hover:border-green-500 rounded-full px-3 py-1">
+                    Admin Upload
+                </Link>
             </footer>
         </div>
     );
