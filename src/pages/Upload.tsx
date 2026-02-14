@@ -13,6 +13,7 @@ const UploadPage = () => {
     const [fileType, setFileType] = useState('assignment');
     const [file, setFile] = useState<File | null>(null);
     const [loading, setLoading] = useState(false);
+    const [status, setStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({ type: null, message: '' });
     const [backendStatus, setBackendStatus] = useState<'checking' | 'ok' | 'error'>('checking');
 
     React.useEffect(() => {
