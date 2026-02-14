@@ -58,7 +58,22 @@ const UploadPage = () => {
                     })
                 });
 
-                const result = await response.json();
+                const contentType = response.headers.get("content-type");
+                let result;
+                if (contentType && contentType.indexOf("application/json") !== -1) {
+                    result = await response.json();
+                } else {
+                    // Start of non-JSON response handling
+                    const text = await response.text();
+                    console.error("API Error (Non-JSON):", text);
+                    if (text.includes("timeout")) {
+                        throw new Error("Upload timed out. File might be too large (max 4.5MB on Vercel free tier).");
+                    }
+                    // Extract title if it's an HTML error page
+                    const titleMatch = text.match(/<title>(.*?)<\/title>/);
+                    const errorMsg = titleMatch ? titleMatch[1] : text.slice(0, 100);
+                    throw new Error(`Server Error (${response.status}): ${errorMsg}`);
+                }
 
                 if (!response.ok) throw new Error(result.error || 'Upload failed');
 

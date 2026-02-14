@@ -16,17 +16,29 @@ export default async function handler(request: any, response: any) {
     }
 
     if (!GITHUB_TOKEN) {
+        console.error('SERVER ERROR: GITHUB_TOKEN is missing');
         return response.status(500).json({ error: 'Server misconfigured: Missing GITHUB_TOKEN' });
     }
 
     try {
-        const { fileContent, fileName, subjectId, type, folder } = request.body;
+        let body;
+        try {
+            body = request.body;
+        } catch (e) {
+            console.error('Request body parsing error:', e);
+            return response.status(400).json({ error: 'Invalid JSON body' });
+        }
+
+        const { fileContent, fileName, subjectId, type, folder } = body;
 
         if (!fileContent || !fileName || !subjectId || !type || !folder) {
+            console.error('Missing fields:', { fileName, subjectId, type, folder });
             return response.status(400).json({ error: 'Missing required fields' });
         }
 
+        console.log(`Starting upload for ${fileName} to ${subjectId}`);
         const octokit = new Octokit({ auth: GITHUB_TOKEN });
+
 
         // 1. Upload PDF to public/assignments/{folder}/{fileName}
         const pdfPath = `public/assignments/${folder}/${fileName}`;
