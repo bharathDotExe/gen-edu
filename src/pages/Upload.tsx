@@ -13,7 +13,17 @@ const UploadPage = () => {
     const [fileType, setFileType] = useState('assignment');
     const [file, setFile] = useState<File | null>(null);
     const [loading, setLoading] = useState(false);
-    const [status, setStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({ type: null, message: '' });
+    const [backendStatus, setBackendStatus] = useState<'checking' | 'ok' | 'error'>('checking');
+
+    React.useEffect(() => {
+        fetch('/api/health')
+            .then(res => {
+                if (res.ok) return res.json();
+                throw new Error('Backend not reachable');
+            })
+            .then(() => setBackendStatus('ok'))
+            .catch(() => setBackendStatus('error'));
+    }, []);
 
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
@@ -130,6 +140,13 @@ const UploadPage = () => {
                         </div>
                         <h1 className="text-2xl font-bold text-white">Upload Assignment</h1>
                     </div>
+
+                    {backendStatus === 'error' && (
+                        <div className="mb-6 p-4 bg-red-500/20 border border-red-500/50 rounded-xl text-red-200">
+                            <p className="font-bold flex items-center gap-2"><AlertCircle className="w-5 h-5" /> Backend Not Reachable</p>
+                            <p className="text-sm mt-1">The upload function is not accessible. If you are running locally, use <code>vercel dev</code>. If on Vercel, check the function logs.</p>
+                        </div>
+                    )}
 
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div>
