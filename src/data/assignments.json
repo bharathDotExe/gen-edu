@@ -24,6 +24,22 @@
             {
                 "name": "linux cba.pdf",
                 "type": "assignment"
+            },
+            {
+                "name": "CBA-1.pdf",
+                "type": "assignment"
+            },
+            {
+                "name": "LASP-CBA-4.pdf",
+                "type": "assignment"
+            },
+            {
+                "name": "LASP-QA-1.pdf",
+                "type": "assignment"
+            },
+            {
+                "name": "LASP-QA-2.pdf",
+                "type": "assignment"
             }
         ]
     },
