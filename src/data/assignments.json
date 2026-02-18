@@ -9,9 +9,8 @@
                 "type": "ppt"
             },
             {
-                "name": "Linux Practical Guide (Coda)",
-                "type": "practical",
-                "link": "https://coda.io/embed/VuBBXvQ_Ic/_suHJzD6W?viewMode=embedplay"
+                "name": "linux experiments.pdf",
+                "type": "practical"
             },
             {
                 "name": "LASP-CBA-3.pdf",
@@ -66,9 +65,8 @@
                 "type": "ppt"
             },
             {
-                "name": "Python Practical Guide (Coda)",
-                "type": "practical",
-                "link": "https://coda.io/embed/Y056YPmCuX/_suWKoq0U?viewMode=embedplay"
+                "name": "python programming experiments.pdf",
+                "type": "practical"
             },
             {
                 "name": "python qualitative assignment  1.pdf",
