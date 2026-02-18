@@ -1,18 +1,21 @@
 import React from 'react';
-import { FileText, MonitorPlay, FileCode, Download } from 'lucide-react';
+import { FileText, MonitorPlay, FileCode, Download, FlaskConical } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface AssignmentFile {
     name: string;
     type: string;
     content?: string;
+    link?: string;
 }
+
 
 interface ResourceListProps {
     files: AssignmentFile[];
     folder: string;
-    onRead: (url: string, title: string, content?: string) => void;
+    onRead: (url: string, title: string, content?: string, type?: string) => void;
 }
+
 
 const ResourceList: React.FC<ResourceListProps> = ({ files, folder, onRead }) => {
     const getIcon = (type: string) => {
@@ -20,6 +23,7 @@ const ResourceList: React.FC<ResourceListProps> = ({ files, folder, onRead }) =>
             case 'syllabus': return <FileText className="text-neon-pink" />;
             case 'ppt': return <MonitorPlay className="text-neon-cyan" />;
             case 'assignment': return <FileCode className="text-neon-purple" />;
+            case 'practical': return <FlaskConical className="text-neon-green" />;
             default: return <FileText className="text-slate-400" />;
         }
     };
@@ -29,6 +33,7 @@ const ResourceList: React.FC<ResourceListProps> = ({ files, folder, onRead }) =>
             case 'syllabus': return 'Course Syllabus';
             case 'ppt': return 'Presentation Topic';
             case 'assignment': return 'Practical Assignment';
+            case 'practical': return 'Practical Experiment';
             default: return 'Document';
         }
     };
@@ -41,9 +46,10 @@ const ResourceList: React.FC<ResourceListProps> = ({ files, folder, onRead }) =>
     // BEST PRACTICE: Move 'assignments' folder to 'public/assignments'.
     // I will assume I will do that step next.
 
-    const getFileUrl = (filename: string) => {
+    const getFileUrl = (file: AssignmentFile) => {
+        if (file.link) return file.link;
         // Handling subdirectories if filename contains '/'
-        return `/assignments/${encodeURIComponent(folder)}/${encodeURIComponent(filename)}`;
+        return `/assignments/${encodeURIComponent(folder)}/${encodeURIComponent(file.name)}`;
     };
 
     return (
@@ -55,7 +61,7 @@ const ResourceList: React.FC<ResourceListProps> = ({ files, folder, onRead }) =>
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
                     className="glass p-3 sm:p-4 rounded-xl flex items-center gap-3 sm:gap-4 group hover:bg-white/5 transition-colors cursor-pointer w-full overflow-hidden"
-                    onClick={() => onRead(getFileUrl(file.name), file.name.split('/').pop() || 'Document', file.content)}
+                    onClick={() => onRead(getFileUrl(file), file.name.split('/').pop() || 'Document', file.content, file.type)}
                 >
                     <div className="p-2 sm:p-3 bg-white border border-slate-100 rounded-lg group-hover:scale-110 transition-transform shrink-0">
                         {getIcon(file.type)}
@@ -67,8 +73,10 @@ const ResourceList: React.FC<ResourceListProps> = ({ files, folder, onRead }) =>
                         <p className="text-[10px] sm:text-xs text-slate-500 mt-0.5 sm:mt-1">{getSubtext(file.type)}</p>
                     </div>
                     <a
-                        href={getFileUrl(file.name)}
-                        download
+                        href={getFileUrl(file)}
+                        download={!file.link}
+                        target={file.link ? "_blank" : undefined}
+                        rel={file.link ? "noopener noreferrer" : undefined}
                         onClick={(e) => e.stopPropagation()}
                         className="p-2 rounded-full hover:bg-neon-purple/10 text-slate-400 hover:text-neon-purple transition-all"
                         title="Download PDF"

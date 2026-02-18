@@ -8,8 +8,8 @@ import { motion } from 'framer-motion';
 
 const SubjectPage: React.FC = () => {
     const { id } = useParams<{ id: string }>();
-    const [selectedFile, setSelectedFile] = useState<{ url: string; title: string; content?: string } | null>(null);
-    const [activeTab, setActiveTab] = useState<'syllabus' | 'ppt' | 'assignment'>('assignment');
+    const [selectedFile, setSelectedFile] = useState<{ url: string; title: string; content?: string; type?: string } | null>(null);
+    const [activeTab, setActiveTab] = useState<'syllabus' | 'ppt' | 'assignment' | 'practical'>('assignment');
     const subject = assignmentsData.find(s => s.id === id);
 
     if (!subject) {
@@ -18,6 +18,7 @@ const SubjectPage: React.FC = () => {
 
     const tabs = [
         { id: 'assignment', label: 'Assignments', color: 'bg-neon-purple', text: 'text-neon-purple' },
+        { id: 'practical', label: 'Practical Experiments', color: 'bg-neon-green', text: 'text-neon-green' },
         { id: 'ppt', label: 'PPT Topics', color: 'bg-neon-cyan', text: 'text-neon-cyan' },
         { id: 'syllabus', label: 'Syllabus', color: 'bg-neon-pink', text: 'text-neon-pink' },
     ] as const;
@@ -70,7 +71,7 @@ const SubjectPage: React.FC = () => {
                             <ResourceList
                                 files={filteredFiles}
                                 folder={subject.folder}
-                                onRead={(url, title, content) => setSelectedFile({ url, title, content })}
+                                onRead={(url, title, content, type) => setSelectedFile({ url, title, content, type })}
                             />
                         </div>
                     ) : (
@@ -86,7 +87,7 @@ const SubjectPage: React.FC = () => {
                 onClose={() => setSelectedFile(null)}
                 title={selectedFile?.title}
             >
-                {selectedFile && <PDFReader url={selectedFile.url} title={selectedFile.title} />}
+                {selectedFile && <PDFReader url={selectedFile.url} title={selectedFile.title} type={selectedFile.type} />}
             </Modal>
         </div>
     );

@@ -5,9 +5,11 @@ import * as XLSX from 'xlsx';
 interface PDFReaderProps {
     url: string;
     title?: string;
+    type?: string;
 }
 
-const PDFReader: React.FC<PDFReaderProps> = ({ url, title }) => {
+
+const PDFReader: React.FC<PDFReaderProps> = ({ url, title, type }) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [fileType, setFileType] = useState<'pdf' | 'excel' | 'unknown'>('unknown');
@@ -21,7 +23,7 @@ const PDFReader: React.FC<PDFReaderProps> = ({ url, title }) => {
 
                 const extension = url.split('.').pop()?.toLowerCase();
 
-                if (extension === 'pdf') {
+                if (extension === 'pdf' || type === 'practical') {
                     setFileType('pdf');
                     // We don't need to fetch the PDF manually, the iframe will handle it.
                     // This speeds up the perceived load time significantly.
@@ -131,7 +133,7 @@ const PDFReader: React.FC<PDFReaderProps> = ({ url, title }) => {
             <div className="flex-1 relative bg-slate-100 overflow-auto">
                 {fileType === 'pdf' ? (
                     <iframe
-                        src={`${url}#toolbar=0&navpanes=0&scrollbar=1`}
+                        src={url.endsWith('.pdf') ? `${url}#toolbar=0&navpanes=0&scrollbar=1` : url}
                         className="w-full h-full border-none bg-slate-100"
                         title={title || 'PDF Document'}
                         onLoad={() => setLoading(false)}
