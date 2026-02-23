@@ -111,39 +111,39 @@
         "folder": "web technology",
         "files": [
             {
-                "name": "Web technology experiments.pdf",
-                "type": "practical"
-            },
-            {
-                "name": "WEB-Assignment-2 (All questions are mandatory) .pdf",
-                "type": "assignment"
-            },
-            {
                 "name": "Web Technology Syllabus.docx",
                 "type": "syllabus"
-            },
-            {
-                "name": "web technology assignment (1).pdf",
-                "type": "assignment"
-            },
-            {
-                "name": "web technology cba -4 (1).pdf",
-                "type": "assignment"
-            },
-            {
-                "name": "web technology cba-3 .pdf",
-                "type": "assignment"
             },
             {
                 "name": "web technology ppt topics .xls",
                 "type": "ppt"
             },
             {
-                "name": "qualitative assignement/WEB-Assignment-2 (1).pdf",
+                "name": "Web technology experiments.pdf",
+                "type": "practical"
+            },
+            {
+                "name": "web technology CB-assignment-1.pdf",
                 "type": "assignment"
             },
             {
-                "name": "qualitative assignement/WEB-QA-webpage designing 1.pdf",
+                "name": "WEB-CB-Assignment-2.pdf",
+                "type": "assignment"
+            },
+            {
+                "name": "web technology CB-Assignment-3.pdf",
+                "type": "assignment"
+            },
+            {
+                "name": "web technology CB-Assignment-4.pdf",
+                "type": "assignment"
+            },
+            {
+                "name": "qualitative assignement/WEB-QA-1.pdf",
+                "type": "assignment"
+            },
+            {
+                "name": "qualitative assignement/WEB-QA-2.pdf",
                 "type": "assignment"
             }
         ]
